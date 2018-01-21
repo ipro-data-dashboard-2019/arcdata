@@ -26,6 +26,7 @@ module Incidents::HomeControllerHelper
   def incident_link(incident)
     str = incident.date.strftime "%-m/%-d "
     loc = [incident.city]
+    loc << " (" + [incident.address] +") "
     loc << incident.state if scope.summary_show_state
     str << loc.compact.join(", ")
     if can?(:read, incident) && can?(:read, incident.chapter)
