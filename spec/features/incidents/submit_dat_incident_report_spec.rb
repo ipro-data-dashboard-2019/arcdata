@@ -71,10 +71,8 @@ describe "DAT Incident Report", type: :feature, versions: true do
     click_button 'Look Up Address'
 
     select 'Apartment', from: 'Structure type*'
-    fill_in 'Units affected*', with: 1
-    fill_in 'Units minor*', with: 1
-    fill_in 'Units major*', with: 1
-    fill_in 'Units destroyed*', with: 1
+    fill_in 'Units not livable*', with: 1
+    fill_in 'Units livable*', with: 1
 
     # Need the times here
     t = @chapter.time_zone.now
@@ -127,7 +125,7 @@ describe "DAT Incident Report", type: :feature, versions: true do
 
   def fill_in_services
     fill_in 'Narrative*', with: 'This is my narrative'
-    check 'Food'
+    check 'Immediate'
     check 'Translation'
     check 'Spanish'
 
